@@ -20,6 +20,9 @@ public class BulkMailSenderUtil {
     private DataService dataService;
 
     @Autowired
+    private SendMailUtil sendMailUtil;
+
+    @Autowired
     private KhachHangService khachHangService;
 
     public List<String> retrieveListMailsKH(String idChienDich) {
@@ -43,7 +46,20 @@ public class BulkMailSenderUtil {
         return khachHangMails;
     }
 
-    public MimeMessage createMimeMessage() {
-        return null;
+    public Boolean SendMailToAllKhOfCd(String idChienDich) {
+
+        List<String> mailList = retrieveListMailsKH(idChienDich);
+
+        String[] arrEmails = mailList.toArray(new String[0]);
+
+        try {
+            sendMailUtil.sendHtmlEmail("This is content!", arrEmails);
+
+            return true;
+        } catch (Exception e) {
+            //TODO: handle exception
+        }
+
+        return false;
     }
 }

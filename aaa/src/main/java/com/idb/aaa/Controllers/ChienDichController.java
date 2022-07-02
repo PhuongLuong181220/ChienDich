@@ -67,7 +67,13 @@ public class ChienDichController {
         // BulkMailSenderUtil bulkMailSenderUtil = new BulkMailSenderUtil();
         List<String> mails = bulkMailSenderUtil.retrieveListMailsKH(idChienDich);
 
-        entity = new ResponseEntity<>(mails, HttpStatus.OK);
+        Boolean kk = bulkMailSenderUtil.SendMailToAllKhOfCd(idChienDich);
+
+        if(kk) {
+            entity = new ResponseEntity<>(mails, HttpStatus.OK);
+        } else {
+            entity = new ResponseEntity<>("{ \"Send failed!\": \"@@\" }", HttpStatus.INTERNAL_SERVER_ERROR);
+        }
 
         return entity;
     }
