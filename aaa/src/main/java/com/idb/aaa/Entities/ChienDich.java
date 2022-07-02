@@ -35,4 +35,10 @@ public class ChienDich {
 
     @Column(name = "c_ndcd")
     private String noiDung;
+    
+    @Column(name= "c_dayofweek")
+    private String tuan;
+
+    @Column(name= "c_dayofmonth")
+    private String thang;
 }
