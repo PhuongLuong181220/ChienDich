@@ -1,5 +1,7 @@
 package com.idb.aaa.Entities;
 
+import java.time.LocalDate;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -28,17 +30,17 @@ public class ChienDich {
     private String loaiCd;
 
     @Column(name = "c_ngaybatdaucd")
-    private String ngayBatDau;
+    private LocalDate ngayBatDau;
 
     @Column(name = "c_ngayketthuccd")
-    private String ngayKetThuc;
+    private LocalDate ngayKetThuc;
 
     @Column(name = "c_ndcd")
     private String noiDung;
     
     @Column(name= "c_dayofweek")
-    private String tuan;
+    private String dayOfWeek;
 
     @Column(name= "c_dayofmonth")
-    private String thang;
+    private String dayOfMonth;
 }
